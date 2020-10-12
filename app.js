@@ -35,7 +35,7 @@ yargs.command({
     command: 'list',
     desc: 'listing movie function',
     handler: function() {
-        console.log('lisinf=g the items')
+        movies.listMovies()
     }
 })
 

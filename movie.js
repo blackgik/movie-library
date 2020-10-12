@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const addMovie = (title, rating) => {
     const movies = loadMovie()
     const duplicate = movies.find(movie => movie.title === title);
-    console.log(duplicate)
+    
     if (!duplicate){
         movies.push({
             title:title, 
@@ -17,8 +17,18 @@ const addMovie = (title, rating) => {
         console.log(chalk.red(title) + ' already exist')
     }
     
-    saveMovie(movies);
+    saveMovie(movies); 
 }
+
+// list movies available
+const listMovies = ()=>{
+    console.log(chalk.yellowBright('Movie List...'))
+    const movies = loadMovie();
+    movies.forEach(movie=>{
+        console.log(movie.title)
+    })
+} 
+
 
 // saving the data function
 const saveMovie = (movies) =>{
@@ -41,4 +51,5 @@ const loadMovie = ()=>{
 
 module.exports = {
     addMovie: addMovie,
+    listMovies:listMovies
 }
